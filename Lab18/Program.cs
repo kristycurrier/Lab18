@@ -35,38 +35,49 @@ namespace Lab18
             return boolValue;
         }
 
-        class Program
+        public static void PrintReverse<t>(this LinkedList<t> list)
         {
-            static void Main(string[] args)
+            for (int i = list.Count-1; i >=0; i--)
             {
-                LinkedList<int> list = new LinkedList<int>();
-
-                list.AddFirst(1);
-                list.AddLast(2);
-                list.AddLast(3);
-                list.AddLast(4);
-                list.AddLast(5);
-                list.AddLast(1);
-                list.AddLast(2);
-                list.AddLast(3);
-
-                for (int i = 0; i < list.Count; i++)
-                {
-                    Console.WriteLine(list.ElementAt(i));
-                }
-
-                bool validIndex = list.RemoveAt(10);
-                Console.WriteLine("");
-
-                for (int i = 0; i < list.Count; i++)
-                {
-                    Console.WriteLine(list.ElementAt(i));
-                }
-
-                Console.WriteLine(validIndex);
-
-                Console.ReadKey();
+                Console.WriteLine(list.ElementAt(i));
             }
         }
     }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LinkedList<int> list = new LinkedList<int>();
+
+            list.AddFirst(1);
+            list.AddLast(2);
+            list.AddLast(3);
+            list.AddLast(4);
+            list.AddLast(5);
+            list.AddLast(1);
+            list.AddLast(2);
+            list.AddLast(3);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list.ElementAt(i));
+            }
+
+            bool validIndex = list.RemoveAt(7);
+            Console.WriteLine("");
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list.ElementAt(i));
+            }
+
+            Console.WriteLine(validIndex);
+            list.PrintReverse();
+
+            Console.ReadKey();
+        }
+    }
+
 }
