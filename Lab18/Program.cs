@@ -2,6 +2,7 @@
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Lab18
 {
@@ -43,8 +44,10 @@ namespace Lab18
             *********************************************/
 
             int[] numArray = { 1, 2, 3, 2, 2, 4, 5, 5, 7, 8, 4, 4, 1, 0, 10 };
-
+            Console.WriteLine("Frequency using Array");
             ArrayFrequency(numArray);
+            Console.WriteLine("Frequency using Dictonary");
+            DictionaryFequency(numArray);
 
             Console.ReadKey();
         }
@@ -69,9 +72,29 @@ namespace Lab18
             {
                 if (frequencyArray[i] > 0)
                 {
-                    Console.Write($"[{i}]: ");
-                    Console.WriteLine(frequencyArray[i]);
+                    Console.WriteLine($"[{i}]: {frequencyArray[i]}");
                 }
+            }
+        }
+
+        public static void DictionaryFequency(int[] intArray)
+        {
+            Dictionary<int, int> list = new Dictionary<int, int>();
+
+            foreach (int num in intArray)
+            {
+                if (list.ContainsKey(num))
+                {
+                    list[num]++;
+                }
+                else
+                {
+                    list.Add(num, 1);
+                }
+            }
+            foreach (var item in list.OrderBy(key => key.Key))
+            {
+                Console.WriteLine($"[{item.Key}]: {item.Value}");
             }
         }
 
