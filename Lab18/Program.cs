@@ -3,6 +3,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Lab18
 {
@@ -10,10 +11,6 @@ namespace Lab18
     {
         static void Main(string[] args)
         {
-            /***********************************
-             * LinkedList methods***************
-             * *********************************
-             
             LinkedList<int> list = new LinkedList<int>();
 
             list.AddFirst(1);
@@ -30,8 +27,8 @@ namespace Lab18
                 Console.WriteLine(list.ElementAt(i));
             }
 
-            //bool validIndex = list.RemoveAt(7);
-            bool validIndex = list.InsertAt(2, 20);
+            bool validIndex = list.RemoveAt(7);
+            //bool validIndex = list.InsertAt(2, 20);
             Console.WriteLine("");
 
             for (int i = 0; i < list.Count; i++)
@@ -40,8 +37,7 @@ namespace Lab18
             }
 
             Console.WriteLine(validIndex);
-            //list.PrintReverse();
-            *********************************************/
+            list.PrintReverse();
 
             int[] numArray = { 1, 2, 3, 2, 2, 4, 5, 5, 7, 8, 4, 4, 1, 0, 10 };
             Console.WriteLine("Frequency using Array");
@@ -97,7 +93,6 @@ namespace Lab18
                 Console.WriteLine($"[{item.Key}]: {item.Value}");
             }
         }
-
     }
 
 }
