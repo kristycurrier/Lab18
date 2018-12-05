@@ -1,80 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Lab18
 {
-    public static class LinkedListExtensions
-    {
-        public static bool RemoveAt<t>(this LinkedList<t> list, int index)
-        {
-            var length = list.Count;
-            var boolValue = false;
-            if (index >= length)
-            {
-                boolValue = false;
-            }
-            else
-            {
-                for (int i = 0; i < length; i++)
-                {
-                    if (i != index)
-                    {
-                        list.AddLast(list.ElementAt(i));
-                    }
-                }
-                for (int i = 0; i < length; i++)
-                {
-                    list.RemoveFirst();
-                }
-                boolValue = true;
-            }
-            return boolValue;
-        }
-
-        public static void PrintReverse<t>(this LinkedList<t> list)
-        {
-            for (int i = list.Count - 1; i >= 0; i--)
-            {
-                Console.WriteLine(list.ElementAt(i));
-            }
-        }
-
-        public static bool InsertAt<t>(this LinkedList<t> list, int index, t o)
-        {
-            var length = list.Count;
-            var boolValue = false;
-            if (index >= length)
-            {
-                boolValue = false;
-            }
-            else
-            {
-                for (int i = 0; i < length; i++)
-                {
-                    if (i == index)
-                    {
-                        list.AddLast(o);
-                    }
-                    list.AddLast(list.ElementAt(i));
-                }
-                for (int i = 0; i < length; i++)
-                {
-                    list.RemoveFirst();
-                }
-                boolValue = true;
-            }
-            return boolValue;
-
-        }
-
-    }
     class Program
     {
         static void Main(string[] args)
         {
+            /***********************************
+             * LinkedList methods***************
+             * *********************************
+             
             LinkedList<int> list = new LinkedList<int>();
 
             list.AddFirst(1);
@@ -102,9 +40,41 @@ namespace Lab18
 
             Console.WriteLine(validIndex);
             //list.PrintReverse();
+            *********************************************/
+
+            int[] numArray = { 1, 2, 3, 2, 2, 4, 5, 5, 7, 8, 4, 4, 1, 0, 10 };
+
+            ArrayFrequency(numArray);
 
             Console.ReadKey();
         }
+
+        public static void ArrayFrequency(int[] intArray)
+        {
+            int big = intArray.Max();
+
+            int[] frequencyArray = new int[big + 1];
+
+            for (int i = 0; i < frequencyArray.Length; i++)
+            {
+                for (int j = 0; j < intArray.Length; j++)
+                {
+                    if (intArray[j] == i)
+                    {
+                        frequencyArray[i]++;
+                    }
+                }
+            }
+            for (int i = 0; i < frequencyArray.Length; i++)
+            {
+                if (frequencyArray[i] > 0)
+                {
+                    Console.Write($"[{i}]: ");
+                    Console.WriteLine(frequencyArray[i]);
+                }
+            }
+        }
+
     }
 
 }
